@@ -1,0 +1,574 @@
+﻿
+[
+  {
+    "id": "shampoo",
+    "title": "Spécial Shampoing & Douche 🚿",
+    "description": "Le quiz qui mousse sans piquer les yeux",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Lequel de ces produits est réellement un shampoing ?",
+        "options": [
+          "Head & Shoulders",
+          "Nutella",
+          "Garnier Fructis",
+          "Savon noir pour carrelage"
+        ],
+        "correctAnswers": [0, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 2,
+        "question": "Que risque-t-il d'arriver si tu confonds ton shampoing avec de la mayonnaise ?",
+        "options": [
+          "Des cheveux soyeux au goût d'œuf",
+          "Une fringale sous la douche",
+          "Absolument rien, c'est un secret de grand-mère",
+          "Une invasion de frites dans ta baignoire"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 3,
+        "question": "Que signifie réellement la mention 'Ne pique pas les yeux' sur un shampoing pour bébé ?",
+        "options": [
+          "C'est scientifiquement prouvé",
+          "C'est un énorme mensonge marketing",
+          "Ça pique quand même, mais en silence",
+          "Ça transforme tes larmes en paillettes"
+        ],
+        "correctAnswers": [1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 4,
+        "question": "Lesquels de ces ingrédients bizarres trouve-t-on parfois dans de vrais shampoings ?",
+        "options": [
+          "Bave d'escargot",
+          "Bière",
+          "Plutonium 239",
+          "Venin de serpent"
+        ],
+        "correctAnswers": [0, 1, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 5,
+        "question": "Pourquoi chante-t-on mieux avec une bouteille de shampoing en guise de micro ?",
+        "options": [
+          "L'acoustique de la faïence",
+          "Le pouvoir magique du panthénol",
+          "L'effet star internationale sous l'eau chaude",
+          "Parce que personne ne peut nous entendre crier"
+        ],
+        "correctAnswers": [0, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 6,
+        "question": "Quel est le pire endroit où faire tomber son flacon de shampoing ?",
+        "options": [
+          "Sur son petit orteil (douleur niveau Lego)",
+          "Dans les toilettes ouvertes",
+          "Sur le rideau de douche",
+          "Sur une éponge"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 7,
+        "question": "Quelles sont les excuses valables pour utiliser un shampoing 3-en-1 (corps, cheveux, vaisselle) ?",
+        "options": [
+          "Le camping sauvage en Lozère",
+          "La flemme existentielle du dimanche",
+          "Vouloir dégraisser le moteur de sa Twingo en même temps",
+          "Aucune, c'est un crime contre l'humanité"
+        ],
+        "correctAnswers": [1, 2, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 8,
+        "question": "Quel est le comportement standard quand le flacon de shampoing est presque vide ?",
+        "options": [
+          "En racheter un calmement",
+          "Le remplir d'eau jusqu'à créer une potion magique infinie",
+          "Le secouer comme un maracas en râlant",
+          "Le poser à l'envers en équilibre précaire"
+        ],
+        "correctAnswers": [1, 2, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 9,
+        "question": "Qu'est-ce que le 'shampoing sec' concrètement ?",
+        "options": [
+          "De la farine pour cheveux pressés",
+          "Une illusion d'optique",
+          "Un spray qui sauve les retards du lundi matin",
+          "Du sable fin des Maldives"
+        ],
+        "correctAnswers": [0, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 10,
+        "question": "Dans quel film ou série voit-on une scène mythique liée au shampoing ?",
+        "options": [
+          "Mary à tout prix (la mèche rebelle)",
+          "Brooklyn Nine-Nine (laver les cheveux de l'autre)",
+          "Fast & Furious 8 (Dominic Toretto)",
+          "Shrek"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 11,
+        "question": "Lequel de ces shampoings n'existe absolument PAS (encore) ?",
+        "options": [
+          "Shampoing goût Raclette & Oignons grillés",
+          "Shampoing spécial chauves (pour cuir chevelu)",
+          "Shampoing à la truffe blanche",
+          "Shampoing parfum WD-40 pour bricoleurs"
+        ],
+        "correctAnswers": [0, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 12,
+        "question": "Que se passe-t-il si tu laisses poser ton après-shampoing pendant 3 heures ?",
+        "options": [
+          "Tes cheveux deviennent tellement doux qu'ils glissent de ta tête",
+          "Tu attrapes une pneumonie",
+          "Tu oublies complètement pourquoi tu es sous la douche",
+          "Tu deviens officiellement ambassadeur L'Oréal"
+        ],
+        "correctAnswers": [1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 13,
+        "question": "Quelle est la principale fonction des pellicules ?",
+        "options": [
+          "Simuler des chutes de neige sur les pulls noirs",
+          "Nourrir les oiseaux en hiver",
+          "Signaler qu'il est temps d'acheter du Head & Shoulders",
+          "Améliorer l'aérodynamisme du crâne"
+        ],
+        "correctAnswers": [0, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 14,
+        "question": "Pourquoi les instructions disent-elles toujours 'Répéter l'application si nécessaire' ?",
+        "options": [
+          "Pour que tu finisses la bouteille 2x plus vite",
+          "Pour purifier ton karma capillaire",
+          "Parce que la première fois ne compte pas",
+          "C'est un algorithme de boucle infinie non patché"
+        ],
+        "correctAnswers": [0, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 15,
+        "question": "Quelle est l'ultime étape après un shampoing réussi ?",
+        "options": [
+          "Secouer la tête au ralenti comme dans les pubs",
+          "Vérifier son reflet dans la vitre de la douche",
+          "Marcher sur le carrelage froid et maudire la terre entière",
+          "Se rendre compte qu'on a oublié sa serviette"
+        ],
+        "correctAnswers": [0, 2, 3],
+        "durationSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "dev-life",
+    "title": "Vie de Développeur & Bugs 💻",
+    "description": "Pour ceux qui poussent en prod un vendredi à 17h59",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Que répond un développeur quand un bug apparaît en production ?",
+        "options": [
+          "Bizarre, ça marchait en local sur ma machine",
+          "C'est pas un bug, c'est une feature",
+          "Qui a touché à mon code pendant la nuit ?",
+          "Je m'en occupe dès lundi matin première heure"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 2,
+        "question": "Lesquelles de ces techniques de débogage sont universellement reconnues ?",
+        "options": [
+          "Le Rubber Duck Debugging (parler à un canard)",
+          "Mettre des System.out.println partout",
+          "Sacrifier un café noir au dieu du compilateur",
+          "Fermer l'IDE et espérer que le bug s'en aille de lui-même"
+        ],
+        "correctAnswers": [0, 1, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 3,
+        "question": "Quelles commandes Git provoquent des sueurs froides instantanées ?",
+        "options": [
+          "git push --force origin main",
+          "git reset --hard HEAD~10",
+          "git status",
+          "git checkout -b fix-typo"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 4,
+        "question": "Combien de temps prend généralement la tâche estimée à '5 minutes' ?",
+        "options": [
+          "5 minutes",
+          "3 jours ouvrés",
+          "Une refonte complète de l'architecture logicielle",
+          "Une rupture d'anévrisme"
+        ],
+        "correctAnswers": [1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 5,
+        "question": "Quels sont les pires cauchemars d'un développeur front-end ?",
+        "options": [
+          "Centrer une div verticalement en pur CSS",
+          "Gérer le cache du navigateur qui ne se vide jamais",
+          "Recevoir un design sous forme de photo WhatsApp floue",
+          "Utiliser des variables CSS"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 6,
+        "question": "Quel est le ratio recommandé entre lignes de code et tasses de café ?",
+        "options": [
+          "1 ligne = 1 grain de café",
+          "Le café remplace le sang à partir du 3ème commit",
+          "1 tasse par NullPointerException",
+          "Zéro café, juste de la tisane à la camomille"
+        ],
+        "correctAnswers": [1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 7,
+        "question": "Lesquels de ces noms de variables sont considérés comme des hérésies ?",
+        "options": [
+          "temp2_final_FINAL",
+          "toto",
+          "dataListArrayMap",
+          "user"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 8,
+        "question": "Pourquoi les développeurs préfèrent-ils le Dark Mode ?",
+        "options": [
+          "La lumière attire les insectes (et les bugs)",
+          "Ça donne l'impression d'être dans Matrix",
+          "Pour préserver la rétine après 14h d'écran",
+          "C'est obligatoire d'après la charte des hipsters"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 9,
+        "question": "Que signifie un message de commit qui dit juste 'fix' ?",
+        "options": [
+          "Le développeur a trouvé une solution élégante",
+          "Il est 2h du matin et il n'en a plus rien à faire",
+          "C'est le 12ème essai pour faire passer la CI",
+          "Un grand moment de poésie moderne"
+        ],
+        "correctAnswers": [1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 10,
+        "question": "Quelle est l'arme fatale contre un ordinateur qui freeze ?",
+        "options": [
+          "Ctrl + Alt + Suppr frénétique",
+          "Redémarrer et prétendre que rien ne s'est passé",
+          "Taper doucement sur le côté de l'écran",
+          "Formater le disque dur"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "pop-culture",
+    "title": "Pop Culture & Répliques Cultes 🎬",
+    "description": "Testez vos connaissances en cinéma, séries et mèmes",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Lesquelles de ces répliques proviennent de Kaamelott ?",
+        "options": [
+          "C'est pas faux",
+          "Le gras, c'est la vie",
+          "Luke, je suis ton père",
+          "On en a gros !"
+        ],
+        "correctAnswers": [0, 1, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 2,
+        "question": "Dans 'Le Seigneur des Anneaux', que ne fait-on PAS simplement en Mordor ?",
+        "options": [
+          "Y entrer comme dans un moulin",
+          "Commander un burger en livraison",
+          "Marcher tranquillement les mains dans les poches",
+          "Prendre le métro ligne 13"
+        ],
+        "correctAnswers": [0, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 3,
+        "question": "Quels objets insolites sont devenus des légendes du cinéma ?",
+        "options": [
+          "La toupie dans Inception",
+          "Wilson le ballon de volley dans Seul au Monde",
+          "La boîte de chocolats de Forrest Gump",
+          "La brosse à dents de Thanos"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 4,
+        "question": "Dans Retour vers le Futur, quelle vitesse la DeLorean doit-elle atteindre ?",
+        "options": [
+          "88 miles à l'heure",
+          "141,6 km/h",
+          "Vitesse lumière",
+          "Le mur du son"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 5,
+        "question": "Qui sont les véritables héros masqués de Gotham City ?",
+        "options": [
+          "Batman",
+          "Robin",
+          "Alfred Pennyworth (en réalité)",
+          "Le Joker"
+        ],
+        "correctAnswers": [0, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 6,
+        "question": "Quelle phrase célèbre prononce Dark Vador à la fin de Star Wars V ?",
+        "options": [
+          "Non, je suis ton père",
+          "Luke, je suis ton oncle éloigné",
+          "Rends-moi mon sabre laser",
+          "Viens du côté obscur, on a des cookies"
+        ],
+        "correctAnswers": [0],
+        "durationSeconds": 15
+      },
+      {
+        "id": 7,
+        "question": "Dans 'La Cité de la Peur', à quel moment distribue-t-on des chewing-gums ?",
+        "options": [
+          "Prenez un chewing-gum Émile",
+          "Quand on bluffe pas",
+          "Pendant le lancer de couteaux",
+          "À la projection de Red Is Dead"
+        ],
+        "correctAnswers": [0],
+        "durationSeconds": 15
+      },
+      {
+        "id": 8,
+        "question": "Dans Harry Potter, quels mots ouvrent la Carte du Maraudeur ?",
+        "options": [
+          "Je jure solennellement que mes intentions sont mauvaises",
+          "Abracadabra s'il te plaît",
+          "Méfait accompli",
+          "Open Sesame"
+        ],
+        "correctAnswers": [0],
+        "durationSeconds": 15
+      },
+      {
+        "id": 9,
+        "question": "Quelles pilules Morpheus propose-t-il à Neo dans Matrix ?",
+        "options": [
+          "La pilule bleue",
+          "La pilule rouge",
+          "Un cachet d'aspirine 1000",
+          "Un bonbon Haribo"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 10,
+        "question": "Dans quel film culte entend-on 'Tu bluffes Martoni !' ?",
+        "options": [
+          "La Cité de la Peur",
+          "Les Bronzés font du ski",
+          "Le Dîner de Cons",
+          "OSS 117"
+        ],
+        "correctAnswers": [0],
+        "durationSeconds": 15
+      }
+    ]
+  },
+  {
+    "id": "food-debates",
+    "title": "Nourriture & Débats Français 🍕",
+    "description": "Le quiz qui brise des familles entières à l'heure du repas",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Comment appelle-t-on la viennoiserie rectangulaire au chocolat ?",
+        "options": [
+          "Pain au chocolat",
+          "Chocolatine (pour les dissidents du Sud-Ouest)",
+          "Petit pain (dans le Nord)",
+          "Baguette au cacao"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 2,
+        "question": "L'ananas sur la pizza est-il légal selon la convention de Genève ?",
+        "options": [
+          "Non, c'est considéré comme une agression culturelle",
+          "Oui, si on aime le sucré-salé sans complexe",
+          "Les Italiens en pleurent encore",
+          "C'est toléré uniquement avec un passeport hawaïen"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 3,
+        "question": "Que met-on dans une vraie sauce Carbonara traditionnelle italienne ?",
+        "options": [
+          "Du Guanciale (ou pancetta)",
+          "Des jaunes d'œufs et du Pecorino",
+          "De la crème fraîche épaisse (hérésie absolue)",
+          "Des lardons Leader Price et des champignons"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 4,
+        "question": "Quelle est la composition canonique d'un sandwich grec / kebab ?",
+        "options": [
+          "Salade, Tomates, Oignons (Chef !)",
+          "Sauce Samouraï ou Blanche",
+          "Foie gras poêlé et truffes",
+          "Frites directement DANS le pain"
+        ],
+        "correctAnswers": [0, 1, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 5,
+        "question": "À quel moment sert-on le fromage lors d'un repas de famille ?",
+        "options": [
+          "Entre le plat et le dessert",
+          "En dessert pour les vrais passionnés de roquefort",
+          "À 4h du matin au retour de soirée",
+          "Au petit déjeuner avec le café"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 6,
+        "question": "Quel crime commet-on fréquemment avec une raclette ?",
+        "options": [
+          "Manger le fromage sans enlever la croûte",
+          "Mettre de la charcuterie vegan en cachette",
+          "Remplir son caquelon à ras bord jusqu'à ce que ça brûle",
+          "Boire de l'eau froide au lieu de vin blanc"
+        ],
+        "correctAnswers": [2, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 7,
+        "question": "Que faire quand quelqu'un coupe la pointe du brie en premier ?",
+        "options": [
+          "Le déshériter sur-le-champ",
+          "Lui expliquer poliment les règles de la République",
+          "Le regarder avec un mépris silencieux",
+          "Prendre le reste du plateau"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      },
+      {
+        "id": 8,
+        "question": "Lequel de ces plats réchauffe instantanément l'âme humaine ?",
+        "options": [
+          "Un gratin dauphinois bien doré",
+          "Un bœuf bourguignon mijoté 5 heures",
+          "Une salade verte sans assaisonnement",
+          "Un aligot qui file sur 2 mètres"
+        ],
+        "correctAnswers": [0, 1, 3],
+        "durationSeconds": 15
+      },
+      {
+        "id": 9,
+        "question": "Comment mange-t-on un vrai camembert bien affiné ?",
+        "options": [
+          "Quand il coule tout seul hors de la boîte",
+          "Avec du pain frais croustillant",
+          "À la paille",
+          "En le passant 10 minutes au micro-ondes"
+        ],
+        "correctAnswers": [0, 1],
+        "durationSeconds": 15
+      },
+      {
+        "id": 10,
+        "question": "Quel est le sort réservé à celui qui prend la dernière frite du plat ?",
+        "options": [
+          "Il doit demander poliment 'quelqu'un en veut ?'",
+          "Il se fait foudroyer du regard par toute la table",
+          "Il est élu héros du peuple pour son courage",
+          "Il doit payer l'addition"
+        ],
+        "correctAnswers": [0, 1, 2],
+        "durationSeconds": 15
+      }
+    ]
+  }
+]
+
+
+
