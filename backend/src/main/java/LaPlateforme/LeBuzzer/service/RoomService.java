@@ -111,4 +111,57 @@ public class RoomService {
         return player;
     }
 
+
+
+
+    // CONNECT PLAYER //
+
+
+    // Connect Player
+    public Player reconnectPlayer(String roomCode, String playerToken) {
+
+        // Find room
+        Room room = roomRepository
+        .findByRoomCode(roomCode)
+        .orElseThrow(() -> new RuntimeException("Room not found"));
+
+
+
+        // Find player token
+        Player foundPlayer = null;
+        for (Player p : room.getPlayers()) {
+            if (p.getToken().equals(playerToken)) {
+                foundPlayer = p;
+                break;
+            }
+        }
+        if (foundPlayer == null) {
+            throw new RuntimeException("Player not found");
+        }
+        
+        // Reconnect player
+        foundPlayer.setStateCo(true);
+        roomRepository.save(room);
+
+        return foundPlayer;
+    }
+
+
+    // Disconnect Player
+    public void disconnectPlayer(String roomCode, String playerToken) {
+            Room room = roomRepository.findByRoomCode(roomCode).orElseThrow(() -> new RuntimeException("Room not found"));
+            Player foundPlayer = null;
+            for (Player p : room.getPlayers()) {
+                if (p.getToken().equals(playerToken)) {
+                    foundPlayer = p;
+                    break;
+                }
+            }
+            if (foundPlayer == null) {
+                throw new RuntimeException("Player not found");
+            }
+
+            foundPlayer.setStateCo(false);
+            roomRepository.save(room);
+        }
 }
