@@ -15,6 +15,6 @@ public class Player {
     private int id;
     private String pseudo;
     private String token;
-    private int score;
+    private int score = 0;
     private boolean stateCo;
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.ArrayList;
 
 
 
@@ -16,7 +17,7 @@ import java.util.List;
 public class Room {
     private String roomCode;
     private String hostToken;
-    private GameStatus gameStatus;
-    private List<Player> players;
+    private GameStatus gameStatus = GameStatus.LOBBY;
+    private List<Player> players = new ArrayList<>();
     private Quiz quiz;
 }

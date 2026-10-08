@@ -11,6 +11,9 @@ import LaPlateforme.LeBuzzer.model.Room;
 
 @Repository
 
+
+
+// CRUD
 public class RoomRepository {
 
     private final Map<String, Room> rooms = new ConcurrentHashMap<>();
