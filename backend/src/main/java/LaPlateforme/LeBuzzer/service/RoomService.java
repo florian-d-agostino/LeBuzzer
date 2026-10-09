@@ -2,15 +2,18 @@ package LaPlateforme.LeBuzzer.service;
 
 
 
-import org.springframework.stereotype.Service;
-import LaPlateforme.LeBuzzer.repositories.RoomRepository;
-import LaPlateforme.LeBuzzer.model.Room;
-import LaPlateforme.LeBuzzer.model.Player;
-
-
-import lombok.RequiredArgsConstructor;
-import java.util.UUID;
 import java.util.Random;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import LaPlateforme.LeBuzzer.model.Player;
+import LaPlateforme.LeBuzzer.model.Quiz;
+import LaPlateforme.LeBuzzer.model.Room;
+import LaPlateforme.LeBuzzer.repositories.RoomRepository;
+import lombok.RequiredArgsConstructor;
+
+
 
 
 
@@ -24,6 +27,8 @@ import java.util.Random;
 public class RoomService {
 
     private final RoomRepository roomRepository;
+    private final QuizService quizService;
+
 
 
 
@@ -43,7 +48,15 @@ public class RoomService {
 
 
     // Check room code
-    public Room createRoom() {
+    public Room createRoom(String quizId) {
+
+
+        // Load Quizz
+        Quiz quiz = quizService.getQuizById(quizId)
+        .orElseThrow(() -> new RuntimeException("Quiz not found"));
+
+
+        // Generate Room
         String roomCode = generateRoomCode();
         while(roomRepository.roomCodeExists(roomCode)) {
             roomCode = generateRoomCode();
@@ -58,17 +71,12 @@ public class RoomService {
         Room room = new Room();
         room.setRoomCode(roomCode);
         room.setHostToken(hostToken);
+        room.setQuiz(quiz);
 
         roomRepository.save(room);
 
         return room;
-
     }
-
-
-
-
-
 
 
     // Join Room

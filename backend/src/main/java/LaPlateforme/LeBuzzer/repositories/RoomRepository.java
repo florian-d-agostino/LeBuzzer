@@ -1,11 +1,11 @@
 package LaPlateforme.LeBuzzer.repositories;
 
-import org.springframework.stereotype.Repository;
-
-
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.stereotype.Repository;
+
 import LaPlateforme.LeBuzzer.model.Room;
 
 
@@ -16,7 +16,7 @@ import LaPlateforme.LeBuzzer.model.Room;
 // CRUD
 public class RoomRepository {
 
-    private final Map<String, Room> rooms = new ConcurrentHashMap<>();
+    private final Map<String, Room> rooms = new ConcurrentHashMap<>(); // Fonction qui permet de gérer le multi thread !
 
 
     // Save
