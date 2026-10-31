@@ -1,6 +1,19 @@
 package LaPlateforme.LeBuzzer.dto.response;
 
-public class QuestionDto {
-    
-}
+import java.util.List;
 
+
+
+public record QuestionDto(
+
+    int id,
+
+    String question,
+
+    List<String> options,
+
+    int durationSeconds,
+
+    long remainingSeconds
+
+) {}

@@ -1,6 +1,11 @@
 package LaPlateforme.LeBuzzer.dto.response;
 
-public class CreateRoomResponse {
-    
-}
 
+
+public record CreateRoomResponse(
+
+    String roomCode,
+
+    String hostToken
+
+) {}

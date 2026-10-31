@@ -1,6 +1,13 @@
 package LaPlateforme.LeBuzzer.dto.request;
 
-public class SubmitAnswerRequest {
-    
-}
+import java.util.List;
 
+
+
+public record SubmitAnswerRequest(
+
+    String playerToken,
+
+    List<Integer> selectedAnswers
+
+) {}
