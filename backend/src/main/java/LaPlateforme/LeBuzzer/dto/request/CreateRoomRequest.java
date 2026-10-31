@@ -1,6 +1,9 @@
 package LaPlateforme.LeBuzzer.dto.request;
 
-public class CreateRoomRequest {
-    
-}
 
+
+public record CreateRoomRequest(
+
+    String quizId
+
+) {}

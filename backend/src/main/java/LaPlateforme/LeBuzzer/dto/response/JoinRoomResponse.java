@@ -1,5 +1,13 @@
 package LaPlateforme.LeBuzzer.dto.response;
 
-public class JoinRoomResponse {
-    
-}
+
+
+public record JoinRoomResponse(
+
+    int playerId,
+
+    String playerToken,
+
+    String pseudo
+
+) {}

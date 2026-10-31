@@ -1,6 +1,22 @@
 package LaPlateforme.LeBuzzer.dto.response;
 
-public class RoomStateDto {
-    
-}
+import LaPlateforme.LeBuzzer.model.GameStatus;
+import java.util.List;
 
+
+
+public record RoomStateDto(
+
+    String roomCode,
+
+    GameStatus gameStatus,
+
+    int currentQuestionIndex,
+
+    int totalQuestions,
+
+    QuestionDto currentQuestion,
+
+    List<PlayerDto> players
+
+) {}
