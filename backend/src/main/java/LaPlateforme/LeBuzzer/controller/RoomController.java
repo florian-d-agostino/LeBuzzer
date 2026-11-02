@@ -2,7 +2,6 @@ package LaPlateforme.LeBuzzer.controller;
 
 import LaPlateforme.LeBuzzer.model.Room;
 import LaPlateforme.LeBuzzer.model.Player;
-import LaPlateforme.LeBuzzer.model.Quiz;
 import LaPlateforme.LeBuzzer.model.Question;
 import LaPlateforme.LeBuzzer.service.RoomService;
 import LaPlateforme.LeBuzzer.service.QuizService;
@@ -14,6 +13,7 @@ import LaPlateforme.LeBuzzer.dto.response.JoinRoomResponse;
 import LaPlateforme.LeBuzzer.dto.response.RoomStateDto;
 import LaPlateforme.LeBuzzer.dto.response.PlayerDto;
 import LaPlateforme.LeBuzzer.dto.response.QuestionDto;
+import LaPlateforme.LeBuzzer.dto.response.QuizSummaryDto;
 import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
 
 import lombok.RequiredArgsConstructor;
@@ -95,8 +95,15 @@ public class RoomController {
 
     // Get all quizzes
     @GetMapping("/quizzes")
-    public ResponseEntity<List<Quiz>> getAllQuizzes() {
-        return ResponseEntity.ok(quizService.getAllQuizzes());
+    public ResponseEntity<List<QuizSummaryDto>> getAllQuizzes() {
+
+        // Safe Quiz DTO without answers
+        List<QuizSummaryDto> quizzes = quizService.getAllQuizzes().stream()
+                .map(q -> new QuizSummaryDto(q.id(), q.title(), q.description()))
+                .toList();
+
+        return ResponseEntity.ok(quizzes);
+
     }
 
 
