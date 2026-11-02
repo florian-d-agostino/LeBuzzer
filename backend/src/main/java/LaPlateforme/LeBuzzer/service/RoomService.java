@@ -2,6 +2,7 @@ package LaPlateforme.LeBuzzer.service;
 
 
 
+import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
@@ -126,7 +127,7 @@ public class RoomService {
 
 
     // Connect Player
-    public Player reconnectPlayer(String roomCode, String playerToken) {
+    public Player reconnectPlayer(String roomCode, String playerToken, String sessionId) {
 
         // Find room
         Room room = roomRepository
@@ -149,6 +150,7 @@ public class RoomService {
         
         // Reconnect player
         foundPlayer.setStateCo(true);
+        foundPlayer.setSessionId(sessionId);
         roomRepository.save(room);
 
         return foundPlayer;
@@ -156,7 +158,7 @@ public class RoomService {
 
 
     // Disconnect Player
-    public void disconnectPlayer(String roomCode, String playerToken) {
+    public Optional<Player> disconnectPlayer(String roomCode, String playerToken, String sessionId) {
             Room room = roomRepository.findByRoomCode(roomCode).orElseThrow(() -> new RuntimeException("Room not found"));
             Player foundPlayer = null;
             for (Player p : room.getPlayers()) {
@@ -169,7 +171,15 @@ public class RoomService {
                 throw new RuntimeException("Player not found");
             }
 
+
+            // Ignore old session
+            if (!sessionId.equals(foundPlayer.getSessionId())) {
+                return Optional.empty();
+            }
+
             foundPlayer.setStateCo(false);
             roomRepository.save(room);
+
+            return Optional.of(foundPlayer);
         }
 }

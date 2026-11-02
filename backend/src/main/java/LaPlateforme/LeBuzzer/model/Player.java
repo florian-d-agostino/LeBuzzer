@@ -17,4 +17,5 @@ public class Player {
     private String token;
     private int score = 0;
     private boolean stateCo;
+    private String sessionId;
 }

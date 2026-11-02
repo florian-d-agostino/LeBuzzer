@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
@@ -163,13 +164,21 @@ public void nextQuestion(
 @MessageMapping("/room/{roomCode}/reconnect")
 public void reconnectPlayer(
         @DestinationVariable String roomCode,
-        Map<String, String> payload
+        Map<String, String> payload,
+        SimpMessageHeaderAccessor headerAccessor
 ) {
 
         String playerToken = payload.get("playerToken");
 
         // Reconnect player
-        Player player = roomService.reconnectPlayer(roomCode, playerToken);
+        Player player = roomService.reconnectPlayer(roomCode, playerToken, headerAccessor.getSessionId());
+
+        // Store session attributes
+        Map<String, Object> sessionAttributes = headerAccessor.getSessionAttributes();
+        if (sessionAttributes != null) {
+            sessionAttributes.put("roomCode", roomCode);
+            sessionAttributes.put("playerToken", playerToken);
+        }
 
         // Broadcast player back online
         broadcastToRoom(roomCode, "PLAYER_RECONNECTED", new PlayerDto(
