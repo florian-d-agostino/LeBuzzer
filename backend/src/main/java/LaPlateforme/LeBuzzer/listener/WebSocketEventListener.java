@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
+import LaPlateforme.LeBuzzer.dto.response.PlayerDto;
 import LaPlateforme.LeBuzzer.service.RoomService;
 import lombok.RequiredArgsConstructor;
 
@@ -52,13 +53,18 @@ public class WebSocketEventListener {
                 try {
 
                     // Disconnect player in room
-                    roomService.disconnectPlayer(roomCode, playerToken);
+                    roomService.disconnectPlayer(roomCode, playerToken, event.getSessionId())
+                            .ifPresent(player -> messagingTemplate.convertAndSend(
 
-                    // Notify room
-                    messagingTemplate.convertAndSend(
-                            "/topic/room/" + roomCode,
-                            new GameEventDto("PLAYER_DISCONNECTED", Map.of("playerToken", playerToken))
-                    );
+                                    // Notify room without token
+                                    "/topic/room/" + roomCode,
+                                    new GameEventDto("PLAYER_DISCONNECTED", new PlayerDto(
+                                            player.getId(),
+                                            player.getPseudo(),
+                                            player.getScore(),
+                                            player.isStateCo()
+                                    ))
+                            ));
 
 
 
