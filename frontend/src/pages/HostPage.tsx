@@ -30,7 +30,7 @@ interface HostPageProps {
 export const HostPage = ({ session, onLeave }: HostPageProps) => {
 
 
-    const { room, status, stats, error, launchQuestion, closeQuestion, nextQuestion } = useRoom(session)
+    const { room, status, stats, error, launchQuestion, closeQuestion, nextQuestion, leaveRoom } = useRoom(session)
 
     const remaining = useCountdown(room?.deadline ?? null)
 
@@ -60,6 +60,26 @@ export const HostPage = ({ session, onLeave }: HostPageProps) => {
 
 
 
+    // Leave and end room
+    const handleLeave = (): void => {
+
+        const isRunning = room !== null && room.gameStatus !== GameStatus.GAME_OVER && room.gameStatus !== GameStatus.HOST_LEFT
+
+        // Confirm before ending
+        if (isRunning && !window.confirm('Quitter terminera la partie pour tous les joueurs. Continuer ?')) {
+            return
+        }
+
+        if (isRunning) {
+            leaveRoom()
+        }
+
+        onLeave()
+
+    }
+
+
+
     if (!room) {
         return (
             <main className="page">
@@ -80,7 +100,7 @@ export const HostPage = ({ session, onLeave }: HostPageProps) => {
     return (
         <main className="page">
 
-            <RoomBar roomCode={room.roomCode} status={status} stats={stats} onLeave={onLeave} />
+            <RoomBar roomCode={room.roomCode} status={status} stats={stats} onLeave={handleLeave} />
 
             {error && <p className="alert">{error}</p>}
 
@@ -151,6 +171,16 @@ export const HostPage = ({ session, onLeave }: HostPageProps) => {
                         <Leaderboard leaderboard={room.leaderboard} />
                     </Card>
                 </>
+            )}
+
+
+            {room.gameStatus === GameStatus.HOST_LEFT && (
+                <Card
+                    title="Partie terminée"
+                    footer={<button className="button button-primary" onClick={onLeave}>Retour au menu</button>}
+                >
+                    <p className="muted">Tu as été absent plus de 10 secondes, la partie a été fermée.</p>
+                </Card>
             )}
 
 

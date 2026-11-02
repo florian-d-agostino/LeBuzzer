@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import LaPlateforme.LeBuzzer.model.GameStatus;
 import LaPlateforme.LeBuzzer.model.Player;
 import LaPlateforme.LeBuzzer.model.Quiz;
 import LaPlateforme.LeBuzzer.model.Room;
@@ -87,6 +88,12 @@ public class RoomService {
 
         // Find room
         Room room = roomRepository.findByRoomCode(roomCode).orElseThrow(() -> new RuntimeException("Room not found"));
+
+
+        // Check room still open
+        if (room.getGameStatus() == GameStatus.HOST_LEFT) {
+            throw new RuntimeException("Host left the room");
+        }
 
 
         // Check pseudo

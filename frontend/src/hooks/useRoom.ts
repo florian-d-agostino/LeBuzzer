@@ -32,6 +32,8 @@ export interface UseRoomResult {
 
     submitAnswer: (selectedAnswers: number[]) => boolean
 
+    leaveRoom: () => boolean
+
 }
 
 
@@ -89,8 +91,14 @@ export const useRoom = (session: Session): UseRoomResult => {
     useEffect(() => {
 
         const playerToken = session.role === 'PLAYER' ? session.playerToken : null
+        const hostToken = session.role === 'HOST' ? session.hostToken : null
 
         return socket.onConnect(() => {
+
+            // Mark host online
+            if (hostToken) {
+                socket.publish(roomDestination(roomCode, 'host'), {}, { hostToken })
+            }
 
             // Mark player online
             if (playerToken) {
@@ -142,6 +150,7 @@ export const useRoom = (session: Session): UseRoomResult => {
         launchQuestion: () => sendHostCommand('launch'),
         closeQuestion: () => sendHostCommand('close'),
         nextQuestion: () => sendHostCommand('next'),
+        leaveRoom: () => sendHostCommand('leave'),
         submitAnswer,
     }
 

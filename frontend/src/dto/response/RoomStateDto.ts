@@ -18,4 +18,6 @@ export interface RoomStateDto {
 
     players: PlayerDto[]
 
+    hostConnected: boolean
+
 }

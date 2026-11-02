@@ -23,5 +23,7 @@ public class Room {
     private Quiz quiz;
     private java.util.Set<String> answeredPlayerTokens = java.util.concurrent.ConcurrentHashMap.newKeySet();
     private long questionStartedAt = 0;
+    private boolean hostConnected = false;
+    private String hostSessionId;
 }
 

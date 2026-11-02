@@ -4,6 +4,7 @@ public enum GameStatus {
     LOBBY,
     ACTIVE_QUESTION,
     RESULT_QUESTION,
-    GAME_OVER
+    GAME_OVER,
+    HOST_LEFT
 }
 

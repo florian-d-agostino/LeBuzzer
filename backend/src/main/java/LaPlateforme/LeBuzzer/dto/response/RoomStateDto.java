@@ -17,6 +17,8 @@ public record RoomStateDto(
 
     QuestionDto currentQuestion,
 
-    List<PlayerDto> players
+    List<PlayerDto> players,
+
+    boolean hostConnected
 
 ) {}

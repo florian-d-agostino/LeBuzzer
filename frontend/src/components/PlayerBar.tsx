@@ -9,17 +9,19 @@ interface PlayerBarProps {
 
     selfId?: number
 
+    hostConnected?: boolean
+
 }
 
 
 
 // Horizontal players list
-export const PlayerBar = ({ players, selfId }: PlayerBarProps) => {
+export const PlayerBar = ({ players, selfId, hostConnected = true }: PlayerBarProps) => {
 
     return (
         <div className="player-bar">
 
-            <PlayerTile label="Host" crown />
+            <PlayerTile label="Host" crown offline={!hostConnected} />
 
             {players.map(player => (
                 <PlayerTile

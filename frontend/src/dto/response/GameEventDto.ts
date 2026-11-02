@@ -13,6 +13,9 @@ export type GameEventDto =
     | { type: typeof GameEventType.ANSWER_SUBMITTED, payload: { isCorrect: boolean, roomCode: string } }
     | { type: typeof GameEventType.QUESTION_CLOSED, payload: { correctAnswers: number[], leaderboard: PlayerDto[] } }
     | { type: typeof GameEventType.GAME_OVER, payload: PlayerDto[] }
+    | { type: typeof GameEventType.HOST_DISCONNECTED, payload: Record<string, never> }
+    | { type: typeof GameEventType.HOST_RECONNECTED, payload: Record<string, never> }
+    | { type: typeof GameEventType.HOST_LEFT, payload: Record<string, never> }
 
 
 
