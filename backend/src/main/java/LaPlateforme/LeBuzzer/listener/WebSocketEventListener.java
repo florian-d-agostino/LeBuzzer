@@ -10,6 +10,7 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
 import LaPlateforme.LeBuzzer.dto.response.PlayerDto;
+import LaPlateforme.LeBuzzer.service.HostService;
 import LaPlateforme.LeBuzzer.service.RoomService;
 import lombok.RequiredArgsConstructor;
 
@@ -26,7 +27,17 @@ public class WebSocketEventListener {
 
     private final RoomService roomService;
 
+    private final HostService hostService;
+
     private final SimpMessagingTemplate messagingTemplate;
+
+
+
+
+    // Broadcast event helper
+    private void broadcastToRoom(String roomCode, String type, Object payload) {
+        messagingTemplate.convertAndSend("/topic/room/" + roomCode, new GameEventDto(type, payload));
+    }
 
 
 
@@ -46,6 +57,28 @@ public class WebSocketEventListener {
 
             String roomCode = (String) sessionAttributes.get("roomCode");
             String playerToken = (String) sessionAttributes.get("playerToken");
+            String hostToken = (String) sessionAttributes.get("hostToken");
+
+
+            // Host disconnected
+            if (roomCode != null && hostToken != null) {
+
+                try {
+
+                    hostService.disconnectHost(roomCode, event.getSessionId()).ifPresent(room -> {
+
+                        // Notify room
+                        broadcastToRoom(roomCode, "HOST_DISCONNECTED", Map.of());
+
+                        // Host left after timeout
+                        hostService.scheduleHostTimeout(roomCode, () -> broadcastToRoom(roomCode, "HOST_LEFT", Map.of()));
+
+                    });
+
+                } catch (Exception ignored) {
+                }
+
+            }
 
             if (roomCode != null && playerToken != null) {
 

@@ -126,7 +126,22 @@ export const PlayerPage = ({ session, onLeave }: PlayerPageProps) => {
 
             {error && <p className="alert">{error}</p>}
 
-            <PlayerBar players={room.players} selfId={session.playerId} />
+            <PlayerBar players={room.players} selfId={session.playerId} hostConnected={room.hostConnected} />
+
+
+            {!room.hostConnected && room.gameStatus !== GameStatus.HOST_LEFT && room.gameStatus !== GameStatus.GAME_OVER && (
+                <p className="alert">L'hôte s'est déconnecté, en attente de son retour…</p>
+            )}
+
+
+            {room.gameStatus === GameStatus.HOST_LEFT && (
+                <Card
+                    title="L'hôte a quitté la partie"
+                    footer={<button className="button button-primary" onClick={onLeave}>Retour au menu</button>}
+                >
+                    <p className="muted">La partie est terminée.</p>
+                </Card>
+            )}
 
 
             {room.gameStatus === GameStatus.LOBBY && (

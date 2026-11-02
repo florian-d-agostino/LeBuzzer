@@ -18,6 +18,7 @@ import LaPlateforme.LeBuzzer.model.Player;
 import LaPlateforme.LeBuzzer.model.Question;
 import LaPlateforme.LeBuzzer.model.Room;
 import LaPlateforme.LeBuzzer.service.GameService;
+import LaPlateforme.LeBuzzer.service.HostService;
 import LaPlateforme.LeBuzzer.service.RoomService;
 import lombok.RequiredArgsConstructor;
 
@@ -35,6 +36,8 @@ public class GameController {
     private final GameService gameService;
 
     private final RoomService roomService;
+
+    private final HostService hostService;
 
     private final SimpMessagingTemplate messagingTemplate;
 
@@ -187,6 +190,49 @@ public void reconnectPlayer(
                 player.getScore(),
                 player.isStateCo()
         ));
+
+}
+
+
+
+
+    // Connect Host
+@MessageMapping("/room/{roomCode}/host")
+public void connectHost(
+        @DestinationVariable String roomCode,
+        @Header("hostToken") String hostToken,
+        SimpMessageHeaderAccessor headerAccessor
+) {
+
+        // Connect host
+        hostService.connectHost(roomCode, hostToken, headerAccessor.getSessionId());
+
+        // Store session attributes
+        Map<String, Object> sessionAttributes = headerAccessor.getSessionAttributes();
+        if (sessionAttributes != null) {
+            sessionAttributes.put("roomCode", roomCode);
+            sessionAttributes.put("hostToken", hostToken);
+        }
+
+        // Broadcast host online
+        broadcastToRoom(roomCode, "HOST_RECONNECTED", Map.of());
+
+}
+
+
+
+    // Host leaves
+@MessageMapping("/room/{roomCode}/leave")
+public void leaveHost(
+        @DestinationVariable String roomCode,
+        @Header("hostToken") String hostToken
+) {
+
+        // Leave room
+        hostService.leaveHost(roomCode, hostToken);
+
+        // Broadcast host left
+        broadcastToRoom(roomCode, "HOST_LEFT", Map.of());
 
 }
 

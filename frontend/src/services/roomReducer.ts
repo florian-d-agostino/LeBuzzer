@@ -53,6 +53,7 @@ const applySnapshot = (previous: RoomState | null, snapshot: RoomStateDto, recei
         answeredCount: sameQuestion && previous ? previous.answeredCount : 0,
         correctAnswers: sameQuestion && previous ? previous.correctAnswers : null,
         leaderboard: sortByScore(snapshot.players),
+        hostConnected: snapshot.hostConnected,
     }
 
 }
@@ -116,6 +117,19 @@ const applyEvent = (state: RoomState, event: GameEventDto, receivedAt: number): 
                 deadline: null,
                 leaderboard: event.payload,
             }
+
+
+        // Host presence
+        case GameEventType.HOST_DISCONNECTED:
+            return { ...state, hostConnected: false }
+
+        case GameEventType.HOST_RECONNECTED:
+            return { ...state, hostConnected: true }
+
+
+        // Host gone for good
+        case GameEventType.HOST_LEFT:
+            return { ...state, gameStatus: GameStatus.HOST_LEFT, hostConnected: false, deadline: null }
 
     }
 

@@ -79,7 +79,8 @@ public class RoomController {
                 room.getCurrentQuestion(),
                 totalQuestions,
                 questionDto,
-                playerDtos
+                playerDtos,
+                room.isHostConnected()
         );
 
     }

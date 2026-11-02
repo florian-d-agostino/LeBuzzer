@@ -28,4 +28,6 @@ export interface RoomState {
 
     leaderboard: PlayerDto[]
 
+    hostConnected: boolean
+
 }
