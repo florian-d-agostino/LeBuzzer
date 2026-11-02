@@ -4,7 +4,6 @@ import { roomDestination, roomTopic } from '../config/apiConfig'
 import type { ReconnectRequest } from '../dto/request/ReconnectRequest'
 import type { SubmitAnswerRequest } from '../dto/request/SubmitAnswerRequest'
 import { isGameEvent } from '../dto/response/GameEventDto'
-import { GameEventType } from '../model/GameEventType'
 import type { ConnectionStatus } from '../model/ConnectionStatus'
 import type { RoomState } from '../model/RoomState'
 import type { Session } from '../model/Session'
@@ -77,17 +76,12 @@ export const useRoom = (session: Session): UseRoomResult => {
 
             dispatch({ kind: 'EVENT', event: body, receivedAt: Date.now() })
 
-            // Refresh connected list
-            if (body.type === GameEventType.PLAYER_DISCONNECTED) {
-                void loadSnapshot()
-            }
-
         })
 
         // Unsubscribe on unmount
         return unsubscribe
 
-    }, [socket, roomCode, loadSnapshot])
+    }, [socket, roomCode])
 
 
 

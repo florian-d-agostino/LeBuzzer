@@ -65,17 +65,13 @@ const applyEvent = (state: RoomState, event: GameEventDto, receivedAt: number): 
     switch (event.type) {
 
 
-        // Player joined or back
+        // Player joined, back or gone
         case GameEventType.PLAYER_JOINED:
-        case GameEventType.PLAYER_RECONNECTED: {
+        case GameEventType.PLAYER_RECONNECTED:
+        case GameEventType.PLAYER_DISCONNECTED: {
             const players = upsertPlayer(state.players, event.payload)
             return { ...state, players, leaderboard: sortByScore(players) }
         }
-
-
-        // Handled by snapshot
-        case GameEventType.PLAYER_DISCONNECTED:
-            return state
 
 
         // New question

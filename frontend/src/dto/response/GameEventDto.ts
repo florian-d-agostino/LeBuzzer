@@ -8,7 +8,7 @@ import type { QuestionDto } from './QuestionDto'
 export type GameEventDto =
     | { type: typeof GameEventType.PLAYER_JOINED, payload: PlayerDto }
     | { type: typeof GameEventType.PLAYER_RECONNECTED, payload: PlayerDto }
-    | { type: typeof GameEventType.PLAYER_DISCONNECTED, payload: { playerToken: string } }
+    | { type: typeof GameEventType.PLAYER_DISCONNECTED, payload: PlayerDto }
     | { type: typeof GameEventType.QUESTION_STARTED, payload: QuestionDto }
     | { type: typeof GameEventType.ANSWER_SUBMITTED, payload: { isCorrect: boolean, roomCode: string } }
     | { type: typeof GameEventType.QUESTION_CLOSED, payload: { correctAnswers: number[], leaderboard: PlayerDto[] } }
