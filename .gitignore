@@ -18,6 +18,7 @@ target/
 *.zip
 *.tar.gz
 *.rar
+*.agents
 
 ### STS ###
 .apt_generated
@@ -53,3 +54,5 @@ dist/
 
 # PDF
 *.pdf
+
+

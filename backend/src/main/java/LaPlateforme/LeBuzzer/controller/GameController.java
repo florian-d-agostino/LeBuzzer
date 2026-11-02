@@ -1,24 +1,24 @@
 package LaPlateforme.LeBuzzer.controller;
 
-import LaPlateforme.LeBuzzer.model.Room;
-import LaPlateforme.LeBuzzer.model.Player;
-import LaPlateforme.LeBuzzer.model.Question;
-import LaPlateforme.LeBuzzer.service.GameService;
-import LaPlateforme.LeBuzzer.service.RoomService;
-import LaPlateforme.LeBuzzer.dto.request.SubmitAnswerRequest;
-import LaPlateforme.LeBuzzer.dto.response.QuestionDto;
-import LaPlateforme.LeBuzzer.dto.response.PlayerDto;
-import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
+import java.util.List;
+import java.util.Map;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
-import java.util.List;
-import java.util.Map;
+import LaPlateforme.LeBuzzer.dto.request.SubmitAnswerRequest;
+import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
+import LaPlateforme.LeBuzzer.dto.response.PlayerDto;
+import LaPlateforme.LeBuzzer.dto.response.QuestionDto;
+import LaPlateforme.LeBuzzer.model.Player;
+import LaPlateforme.LeBuzzer.model.Question;
+import LaPlateforme.LeBuzzer.model.Room;
+import LaPlateforme.LeBuzzer.service.GameService;
+import LaPlateforme.LeBuzzer.service.RoomService;
+import lombok.RequiredArgsConstructor;
 
 
 
@@ -68,16 +68,16 @@ public class GameController {
         // Broadcast to room
         broadcastToRoom(roomCode, "QUESTION_STARTED", questionDto);
 
-    }
+}
 
 
 
     // Submit Answer
-    @MessageMapping("/room/{roomCode}/submit")
-    public void submitAnswer(
-            @DestinationVariable String roomCode,
-            SubmitAnswerRequest request
-    ) {
+@MessageMapping("/room/{roomCode}/submit")
+public void submitAnswer(
+        @DestinationVariable String roomCode,
+        SubmitAnswerRequest request) 
+        {
 
         // Submit answer
         boolean isCorrect = gameService.submitAnswer(roomCode, request.playerToken(), request.selectedAnswers());
@@ -87,17 +87,16 @@ public class GameController {
                 "isCorrect", isCorrect,
                 "roomCode", roomCode
         ));
-
-    }
+}
 
 
 
     // Close Question
-    @MessageMapping("/room/{roomCode}/close")
-    public void closeQuestion(
-            @DestinationVariable String roomCode,
-            @Header("hostToken") String hostToken
-    ) {
+@MessageMapping("/room/{roomCode}/close")
+public void closeQuestion(
+        @DestinationVariable String roomCode,
+        @Header("hostToken") String hostToken) 
+        {
 
         // Close question
         Room room = gameService.closeQuestion(roomCode, hostToken);
@@ -116,16 +115,16 @@ public class GameController {
                 "leaderboard", leaderboard
         ));
 
-    }
+}
 
 
 
     // Next Question
-    @MessageMapping("/room/{roomCode}/next")
-    public void nextQuestion(
-            @DestinationVariable String roomCode,
-            @Header("hostToken") String hostToken
-    ) {
+@MessageMapping("/room/{roomCode}/next")
+public void nextQuestion(
+        @DestinationVariable String roomCode,
+        @Header("hostToken") String hostToken)
+        {
 
         // Next question
         Room room = gameService.nextQuestion(roomCode, hostToken);
@@ -134,38 +133,38 @@ public class GameController {
         if (room.getGameStatus() == LaPlateforme.LeBuzzer.model.GameStatus.GAME_OVER) {
 
             // Final leaderboard
-            List<PlayerDto> finalPodium = gameService.getLeaderboard(roomCode).stream()
-                    .map(p -> new PlayerDto(p.getId(), p.getPseudo(), p.getScore(), p.isStateCo()))
-                    .toList();
+        List<PlayerDto> finalPodium = gameService.getLeaderboard(roomCode).stream()
+                .map(p -> new PlayerDto(p.getId(), p.getPseudo(), p.getScore(), p.isStateCo()))
+                .toList();
 
-            broadcastToRoom(roomCode, "GAME_OVER", finalPodium);
+        broadcastToRoom(roomCode, "GAME_OVER", finalPodium);
 
         } else {
 
             // Question DTO
-            Question nextQ = room.getQuiz().questions().get(room.getCurrentQuestion());
-            QuestionDto questionDto = new QuestionDto(
-                    nextQ.id(),
-                    nextQ.question(),
-                    nextQ.options(),
-                    nextQ.durationSeconds(),
-                    nextQ.durationSeconds()
-            );
+        Question nextQ = room.getQuiz().questions().get(room.getCurrentQuestion());
+        QuestionDto questionDto = new QuestionDto(
+                nextQ.id(),
+                nextQ.question(),
+                nextQ.options(),
+                nextQ.durationSeconds(),
+                nextQ.durationSeconds()
+        );
 
-            broadcastToRoom(roomCode, "QUESTION_STARTED", questionDto);
+        broadcastToRoom(roomCode, "QUESTION_STARTED", questionDto);
 
         }
 
-    }
+}
 
 
 
     // Reconnect Player
-    @MessageMapping("/room/{roomCode}/reconnect")
-    public void reconnectPlayer(
-            @DestinationVariable String roomCode,
-            Map<String, String> payload
-    ) {
+@MessageMapping("/room/{roomCode}/reconnect")
+public void reconnectPlayer(
+        @DestinationVariable String roomCode,
+        Map<String, String> payload
+) {
 
         String playerToken = payload.get("playerToken");
 
@@ -180,6 +179,6 @@ public class GameController {
                 player.isStateCo()
         ));
 
-    }
+}
 
 }

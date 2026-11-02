@@ -1,16 +1,16 @@
 package LaPlateforme.LeBuzzer.listener;
 
-import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
-import LaPlateforme.LeBuzzer.service.RoomService;
+import java.util.Map;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
-import java.util.Map;
+import LaPlateforme.LeBuzzer.dto.response.GameEventDto;
+import LaPlateforme.LeBuzzer.service.RoomService;
+import lombok.RequiredArgsConstructor;
 
 
 
@@ -29,11 +29,14 @@ public class WebSocketEventListener {
 
 
 
+
     // Handle disconnect
     @EventListener
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
 
+
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
+
 
         // Read session attributes
         Map<String, Object> sessionAttributes = headerAccessor.getSessionAttributes();
@@ -44,6 +47,7 @@ public class WebSocketEventListener {
             String playerToken = (String) sessionAttributes.get("playerToken");
 
             if (roomCode != null && playerToken != null) {
+
 
                 try {
 
@@ -56,8 +60,9 @@ public class WebSocketEventListener {
                             new GameEventDto("PLAYER_DISCONNECTED", Map.of("playerToken", playerToken))
                     );
 
+
+
                 } catch (Exception ignored) {
-                    // Ignore if room already finished
                 }
 
             }
