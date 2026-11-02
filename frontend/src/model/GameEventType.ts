@@ -1,0 +1,13 @@
+export const GameEventType = {
+    PLAYER_JOINED: 'PLAYER_JOINED',
+    PLAYER_RECONNECTED: 'PLAYER_RECONNECTED',
+    PLAYER_DISCONNECTED: 'PLAYER_DISCONNECTED',
+    QUESTION_STARTED: 'QUESTION_STARTED',
+    ANSWER_SUBMITTED: 'ANSWER_SUBMITTED',
+    QUESTION_CLOSED: 'QUESTION_CLOSED',
+    GAME_OVER: 'GAME_OVER',
+} as const
+
+
+
+export type GameEventType = typeof GameEventType[keyof typeof GameEventType]
